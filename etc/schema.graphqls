@@ -1,0 +1,11 @@
+type Mutation {
+    setOrderComment(
+        cart_id: String!,
+        comment: String!
+    ): SetOrderCommentOutput @resolver(class: "Vendor\\OrderComment\\Model\\Resolver\\SetOrderComment")
+}
+
+type SetOrderCommentOutput {
+    status: Boolean!
+    message: String!
+}
