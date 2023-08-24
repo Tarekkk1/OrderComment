@@ -1,0 +1,11 @@
+<?php
+/** @var \Magento\Sales\Model\Order $order */
+$order = $block->getOrder();
+$comment = $order->getCustomerComment();
+?>
+<?php if ($comment): ?>
+    <div class="order-comment">
+        <strong><?= __("Customer Comment:") ?></strong>
+        <p><?= $block->escapeHtml($comment) ?></p>
+    </div>
+<?php endif; ?>
