@@ -14,8 +14,13 @@ $this->quoteRepository = $quoteRepository;
 
 public function setComment($cartId, $comment)
 {
-$quote = $this->quoteRepository->get($cartId);
+
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$quote = $objectManager->create('\Magento\Quote\Model\Quote')->load($cartId);
 $quote->setData('customer_comment', $comment);
 $quote->save();
+
 }
+
 }
