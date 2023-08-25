@@ -1,11 +1,9 @@
 <?php
 /** @var \Magento\Sales\Model\Order $order */
-$order = $block->getOrder();
+$order = $this->getParentBlock()->getOrder();
 $comment = $order->getCustomerComment();
 ?>
-<?php if ($comment): ?>
-    <div class="order-comment">
-        <strong><?= __("Customer Comment:") ?></strong>
-        <p><?= $block->escapeHtml($comment) ?></p>
-    </div>
-<?php endif; ?>
+<div class="order-comment">
+    <strong><?php echo __('Customer Comment:') ?></strong>
+    <div><?php echo $comment ? $this->escapeHtml($comment) : __('No comment provided.') ?></div>
+</div>

@@ -1,11 +1,12 @@
+
 type Mutation {
-    setOrderComment(
-        cart_id: String!,
-        comment: String!
-    ): SetOrderCommentOutput @resolver(class: "Vendor\\OrderComment\\Model\\Resolver\\SetOrderComment")
+        addOrderComment(order_id: Int!, comment: String!): OrderCommentResult @resolver(class: "Vendor\\OrderComment\\Model\\Resolver\\SetOrderComment")
+}   
+
+
+type OrderCommentResult {
+    order_id: Int!
+    comment: String!
 }
 
-type SetOrderCommentOutput {
-    status: Boolean!
-    message: String!
-}
+
