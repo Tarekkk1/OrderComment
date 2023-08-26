@@ -10,3 +10,13 @@ type OrderCommentResult {
 }
 
 
+
+type Mutation {
+    placeOrderWithComment(cart_id: String!, comment: String! ): PlaceOrderOutput @resolver(class: "\\Vendor\\OrderComment\\Model\\Resolver\\PlaceOrderWithComment") @doc(description:"Place order with comment")
+}
+
+
+type PlaceOrderOutput {
+    order: String @doc(description:"Order ID")
+    order_comment: String @doc(description:"Comment for the order")
+}

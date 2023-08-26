@@ -31,13 +31,11 @@ class SetOrderComment implements ResolverInterface
         $orderId = $args['order_id'];
         $comment = $args['comment'];
 
-        // Load the order using increment id
-        $order = $this->orderFactory->create()->loadByIncrementId($orderId);
+         $order = $this->orderFactory->create()->loadByIncrementId($orderId);
         if (!$order->getId()) {
             throw new LocalizedException(__("Order with ID %1 not found", $orderId));
         }
 
-        // Set the comment
         $order->setData('customer_comment', $comment);
         $order->save();
 

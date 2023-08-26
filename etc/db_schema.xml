@@ -3,4 +3,5 @@
     <table name="sales_order" resource="sales" engine="innodb" comment="Sales Order Table">
         <column xsi:type="text" name="customer_comment" nullable="true" comment="Customer Comment"/>
     </table>
+
 </schema>
